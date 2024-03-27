@@ -3,3 +3,23 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.headerStyle {
+    text-align: center;
+    color: red;
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+.buttonStyle {
+    background-color: #0096CD;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    transition: all 2s;
+}
+
+.buttonStyle:hover {
+    background-color: lightseagreen;
+}
