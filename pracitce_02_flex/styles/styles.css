@@ -5,22 +5,33 @@
 }
 
 .flexContainer {
-    min-height: 400px;
+    /* min-height: 400px; */
     border: 1px solid blue;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
 .box {
-    width: 300px;
+    /* width: 300px; */
     height: 300px;
     border: 1px solid black;
+
+    flex-basis: 300px;
+    flex-grow: 1;
+
 }
 
+/* Сделать так, чтобы красный и зеленый забирали равные доли
+свободного пространства контейнера, а желтый занимал бы втрое больше*/
 .box1 {
     background-color: red;
+    flex-shrink: 0;
 }
 
 .box2 {
     background-color: yellow;
+    flex-shrink: 2;
 }
 
 .box3 {
