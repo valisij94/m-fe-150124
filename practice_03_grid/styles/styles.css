@@ -6,6 +6,13 @@
 
 .gridContainer {
     border: 1px solid blue;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 300px);
+    justify-items: center; /* выравнивание по горизонтали*/
+    align-items: center; /* выравнивание по вертикали */
+
+    grid-auto-rows: 800px;
 }
 
 .box {
