@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+.product-card {
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px lightblue;
+    padding: 10px;
+    background-color: white;
+}
+
+.product-img {
+    aspect-ratio: 1 / 1;
+}
+
+.product-name {
+    color: #0096CD;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+}
