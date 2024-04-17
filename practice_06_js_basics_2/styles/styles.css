@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.gridContainer {
+    border: 1px solid blue;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+}
+
+.box {
+    min-height: 200px;
+    border: 1px solid black;
+}
+
+.box1 {
+    background-color: red;
+}
+
+.box2 {
+    background-color: yellow;
+}
+
+.box3 {
+    background-color: lightgreen;
+}
+
+.box4 {
+    background-color: blue;
+}
+
+.box5 {
+    background-color: aqua;
+}
+
+.box6 {
+    background-color: green;
+}
+
+.box7 {
+    background-color: lightpink;
+}
+
+.box8 {
+    background-color: violet;
+}
+
+.box9 {
+    background-color: navy;
+}
+
+
+.simpleForm {
+    max-width: 500px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 50px auto 0;
+    padding: 8px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #0096CD;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+.input:focus {
+    outline: none;
+}
