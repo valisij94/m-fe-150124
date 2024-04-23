@@ -23,10 +23,12 @@ console.log(result);
 ```
 let result = 1 || '1';
 console.log(result);
+
 let result1 = 0 || '1' || 0;
 console.log(result1);
+
 let result2 = '0' || 1 || 0;
-console.log(result2);
+console.log(typeof result2, result2);
 ```
 
 4. Что выведет код:
