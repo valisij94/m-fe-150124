@@ -36,7 +36,7 @@ console.log(nArray.indexOf('3'));
 5. Что выведет код:
 ```
 let nArray = [1, 2, 3, 4, 5];
-console.log(nArray.reverse().join(''));
+console.log(nArray.reverse().join('')); // 54321 //
 ```
 
 ### Задачи занятия
