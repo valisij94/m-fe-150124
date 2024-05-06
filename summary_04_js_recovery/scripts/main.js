@@ -136,3 +136,28 @@ const res = replaceBadWords(
   'auwful'
 );
 console.log(res);
+
+/*
+4. Пишем функцию `upperCaseFirst`. Она должна принимать строку, и возвращать новую строку, где первый символ приведен к верхнему регистру.
+```
+upperCaseFirst('timon'); // Timon
+```
+*/
+
+function upperCaseFirst(str) {
+  return  str.charAt(0).toUpperCase() + str.slice(1);
+  // let result = '';
+  // let flag = true;
+  // for (let symb of str) {
+  //   if (flag) {
+  //     result += symb.toUpperCase();
+  //     flag = false;
+  //   }
+  //   else {
+  //     result += symb;
+  //   }
+  // }
+  // return result;
+}
+
+console.log(upperCaseFirst('timon'))
