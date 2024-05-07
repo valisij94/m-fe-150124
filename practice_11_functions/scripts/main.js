@@ -1,72 +1,76 @@
-const dwarwes = ['Torin', 'Dvalin', 'Balin', 'Filli', 'Killi', 'Gimli', 'Bombur'];
+/*
+1. Function Expression, Function Declaration
+ - создать функцию разворота строки (вывести слова в строке в обратном порядке). Использовать Function Declaration.
+  - пример работы: reverseString("This is a string") -> "string a is This".
+ - попробовать вызвать функцию ДО ее объявления.
+ - переписать задание 1, использовать Function Expression.
+ - попробовать вызвать результат задания 3 ДО Function Expression
+ */
+
+
+// function reverseStringDeclaration(str) {
+//     return str.split(' ').reverse().join(' ');
+// }
+
+// const reverseStringExpression = (str) => str.split(' ').reverse().join(' ');
+
+// console.log(reverseStringDeclaration('This is a srting'))
+// console.log(reverseStringExpression('This is a srting'))
+
+// const button = document.querySelector('.simpleButton');
+// const input = document.querySelector('.simpleInput');
+
+// button.addEventListener('click', (event) => {
+//     alert(input.value);
+// });
 
 /*
-1. Пристрелочная задача. У нас есть массив гномов `dwarwes`. Нужно отделить короля от остальных. С помощью деструктуризации, создайте переменные `king` (в нее записать Торина), `otherDwarwes` (сюда всех остальных).
-*/
-
-const [king, ...otherDwarwes] = dwarwes;
-console.log(king, otherDwarwes);
-
-/*
-2. Пишем функцию `getSum`. Она должна принимать произвольное количество аргументов (чисел), и возвращать их сумму.
+3. Пристрелочная задача на колбэки. Написать функцию `doHomework`. Она принимает 2 аргумента: название предмета, по которому выполняем домашку, и функцию, которая решает ДЗ по предмету. Задача функции - вывести в консоль сообщение вида "starting {subject} homework", и вызвать функцию-колбэк. В аргументах функции-колбэка передаем предмет.
 ```
-getSum(1); // 1
-getSum(1,2); // 3
-getSum(1,2,3,4); // 10
+
+doHomework('math', homeworkCallback);
+// Expected output:
+//  - starting math homework;
+//  - I finished my math homework!
 ```
 */
 
-function getSum( ...numbers ) {
-    let sum = 0;
-    for (let number of numbers) {
-        sum += number;
-    }
-    return sum;
+// Колбэк-функция
+function homeworkCallback(subject) {
+    // ...
+    console.log(`I finished my ${subject} homework!`);
+}
+
+  // Функция, которая ожидает колбэк
+function doHomework(subject, callback) {
+    // Add implementation here
+    console.log(`Starting ${subject} homework`);
+    callback(subject);
 }
 
 /*
-3. Пишем функцию `armTheDwarwes`. Она должна в первом аргументе принять строку `weaponKind` (вид оружия), а дальше, через запятую, принять объекты с данными гномов. Нужно каждого гнома вооружить: добавить ему свойство `weapon`, и значение - из первого аргумента.
+4. Реализовать свой метод map для массивов. Использовать стрелочные функции. То есть, нужно написать функцию map(array, callback), которая принимает в аргументах массив и другую функцию. Результатом выполнения будет новый массив, элементы которого - это результаты вызова функции callback для элементов исходного массива.
 */
 
-function armTheDwarwes(value, ...array) {
-    for (let i = 0; i < array.length; i++) {
-        array[i].weapon = value;
-    }
-}
-
-let torin1 = { name: 'Torin' };
-let dvalin1 = { name: 'Dvalin' };
-let balin1 = { name: 'Balin' };
-
-function getDwarwesNames(...dwarwes) {
-    // let result = '';
-    // // dwarwes = [ { name: 'Torin }, { name: 'Dvalin' } ]
-    // for (let elem of dwarwes) {
-    //     // elem = { name: 'Torin' } -  1st iteration
-    //     // elem = { name: 'Dvalin' } - 2nd iteration
-    //     result += elem.name;
-    // }
-    // return result;
-
+function map(array, callback) {
     let result = [];
-    for (let elem of dwarwes) {
-        result.push(elem.name);
+    for (let elem of array) {
+        result.push(callback(elem))
     }
-    return result.join(',');
+    return result;
 }
-console.log(getDwarwesNames(torin1, dvalin1, balin1))
 
-// getDwarwesNames(torin1, dvalin1, balin1); // Torin,Dvalin,Balin
-
-armTheDwarwes('Sword', torin1, dvalin1);
-
-console.log(torin1, dvalin1); // { name: 'Torin', weapon: 'Sword' }
-
-
-const torin = {
-    name: 'Torin',
-    lastname: 'Oakshield',
-    race: 'Dwarwes',
-    weapons: ['Sword', 'Dagger', 'Axe'],
-    armours: ['Helmet', 'Shield', 'Chain Armour']
+function duplicate(num) {
+    return num * 2;
 }
+
+const result = map(
+    [1,2,3], // array
+    duplicate // callback function which creates elemets for result array
+);
+
+console.log(result)
+
+/**
+ * const result = map( [1,2,3], (el) => el * 2 ); // [2, 4, 6]
+ */
