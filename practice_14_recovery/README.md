@@ -15,7 +15,7 @@
 1. Что выведет фрагмент кода:
 ```
 let array = [1, 2, 3, 4];
-let odds = array.filter( x => x % 2 === 0 );
+let odds = array.filter( x => x % 2 === 0 ); // [ 2,4 ]
 array.push(8);
 console.log(odds);
 ```
@@ -30,7 +30,9 @@ console.log(result);
 3. Что выведет фрагмент кода:
 ```
 const string = 'This is my string';
-const result = string.split(' ').reduce( (acc, val) => acc + val.length );
+const result = string.split(' ').reduce( (acc, val) => {
+     return acc + val.length;
+});
 console.log(result);
 ```
 

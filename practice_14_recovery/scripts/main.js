@@ -70,3 +70,42 @@ function renderProduct(product){
 
     return productCard;
 }
+
+const container = document.querySelector('.productsContainer');
+const mainContainer = document.querySelector('.mainContainer');
+
+function renderProducts(products) {
+    products.forEach( (prod) => {
+        const productCard = renderProduct(prod);
+        container.append(productCard);
+    });
+}
+renderProducts(products);
+
+/*
+2. Делаем возможность фильтра товаров по категориям. Нужно средствами JavaScript, добавить на страницу выпадающее меню (используем тег `select`), с уникальными категориями товаров. Напишем функцию `renderCategoriesSelect`, которая будет находить уникальные категории товаров в массиве `products`, и рисовать нам `select` с этими категориями.
+*/
+
+function renderCategoriesSelect(products) {
+    const categoriesArray = products.reduce( (acc, val) => {
+        if (!acc.includes(val.category)) {
+            acc.push(val.category);
+        }
+        return acc;
+    }, []);
+
+    const selectEl = document.createElement('select');
+    categoriesArray.forEach( cat => {
+        const optionEl = document.createElement('option');
+        optionEl.value = cat;
+        optionEl.textContent = cat;
+        selectEl.append(optionEl);
+    });
+    mainContainer.prepend(selectEl);
+
+    selectEl.addEventListener('change', (event) => {
+        console.log(event.target.value);
+    });
+}
+
+renderCategoriesSelect(products)
