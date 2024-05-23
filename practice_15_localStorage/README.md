@@ -17,6 +17,7 @@
 let name = 'Timon';
 localStorage.setItem('item', name);
 name = 'Pumba';
+localStorage.setItem('item', name);
 console.log( localStorage.getItem('item') );
 ```
 
