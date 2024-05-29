@@ -34,7 +34,7 @@ const myBtn = document.querySelector('.myButton');
 myBtn.onclick = function() {
    console.log('First handler!');
 }
-myBtn.addEventListener('click', () => {
+myBtn.addEventListener('click', (event) => {
    console.log('Second handler!');
 })
 myBtn.onclick = () => console.log('Third handler!');
