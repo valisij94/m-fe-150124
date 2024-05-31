@@ -8,15 +8,6 @@ img {
     max-width: 100%;
 }
 
-.product-card {
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px lightblue;
-    padding: 10px;
-    background-color: white;
-    transition: all 1s;
-    position: relative;
-}
-
 .icons_block {
     display: none;
     position: absolute;
@@ -54,8 +45,18 @@ img {
     justify-content: space-between;
 }
 
-.product-container {
+.productsContainer {
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     padding: 10px;
+}
+
+.productCard {
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px lightblue;
+    padding: 10px;
+    background-color: white;
+    transition: all 1s;
+    position: relative;
 }
