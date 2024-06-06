@@ -52,7 +52,9 @@ const myPromise = new Promise( (resolve, reject) => {
   reject('Result');
 }).then( null, result => {
   console.log(result);
-});
+  throw new Error('WOW!');
+})
+.catch( err => console.log('From catch ' + err) );
 console.log('Third');
 ```
 
