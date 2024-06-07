@@ -71,7 +71,7 @@ fn().then(res => {
   console.log(res)
 })
 
-console.log('end')
+console.log('end');
 ```
 
 ### Задачи занятия
