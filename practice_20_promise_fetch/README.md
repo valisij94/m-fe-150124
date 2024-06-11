@@ -59,7 +59,6 @@ const myPromiseVariable = new Promise( (resolve, reject) => {
 .then( result => {
   return result;
 });
-console.log(myPromiseVariable);
 console.log('Third');
 ```
 
