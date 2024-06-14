@@ -1,4 +1,4 @@
-## Практическое занятие №20
+## Практическое занятие №21
 
 ### Тема: Работа с асинхронными операциями в JS.
 
@@ -16,6 +16,7 @@ async function firstFunction() {
   const myPromise = new Promise( (resolve, reject) => {
     resolve('Result');
   });
+  // AWAIT - функция, притормози, дождись выполнения промиса, и потом продолжай
   const result = await myPromise;
   console.log(result);
   console.log('Finish');
