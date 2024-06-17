@@ -36,13 +36,13 @@ const promise1 = new Promise((resolve, reject) => {
 
 async function asyncFunction() {
   console.log('Async');
-  const res = await(promise1);
+  const res = await promise1;
   console.log(res);
 }
 
 asyncFunction();
 
-console.log('end');
+console.log('End');
 ```
 
 3. Что выведет код?
@@ -55,7 +55,7 @@ async function anotherFunction() {
   console.log('Before');
   const result = await promise;
   console.log('After');
-  return result;
+  return result; // Promise
 }
 
 console.log('First');
@@ -75,6 +75,8 @@ async function test() {
     const res = await successPromise;
     console.log(res);
     throw new Error('Fail!');
+    // После throw код НЕ БУДЕТ выполнен!
+    console.log('After throw');
   }
   catch(err) { console.log(err.message) }
 }
