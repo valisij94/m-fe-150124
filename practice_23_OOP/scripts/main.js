@@ -1,119 +1,64 @@
-const racers = [
-  { name: 'Dominic Toretto', car: 'Dodge Charger' },
-  { name: 'Brian O\'Connor', car: 'Nissan Skyline' },
-  { name: 'Daniel Morales', car: 'Peugeot 308' },
-  { name: 'Frankenstein', car: 'Chevrolet Camaro' }
-]
-
-const categoriesSelect = document.querySelector('.categoriesSelect');
-const productsContainer = document.querySelector('.productsContainer');
-
-const renderCategories = (categories) => {
-  categories.forEach( cat => {
-    const categoryEl = document.createElement('option');
-    categoryEl.value = cat.slug;
-    categoryEl.textContent = cat.name;
-    categoriesSelect.append(categoryEl);
-  });
-}
-
-function renderProduct(product){
-  const productCard = document.createElement('div');
-  productCard.classList.add('productCard');
-
-  const productTitle = document.createElement('h3');
-  productTitle.textContent = product.title;
-  productTitle.classList.add('productTitle');
-
-  const productPrice = document.createElement('p');
-  productPrice.textContent = product.price;
-  productPrice.classList.add('productPrice');
-
-  const productCategory = document.createElement('p');
-  productCategory.textContent = product.category;
-  productCategory.classList.add('productCategory');
-
-  const productImg = document.createElement('img');
-  productImg.src = !!product.thumbnail ? product.thumbnail : '';
-  productImg.classList.add('productImg');
-
-  const productDescription = document.createElement('p');
-  productDescription.textContent = product.description;
-  productDescription.classList.add('productDescription');
-
-  productCard.append(productImg, productTitle, productPrice, productCategory, productDescription);
-
-  return productCard;
-}
-
-const renderProducts = (products) => {
-  products.forEach( (prod) => {
-      const productCard = renderProduct(prod);
-      container.append(productCard);
-  })
-};
-
 /*
-1. Пристрелочная. Создать 2 промиса. Первый должен быть зарезолвлен через 1 секунду числом 10, второй - через 2 секунды, числом 15. И нужно вывести сумму результатов этих двух промисов - т.е. дождаться выполнения, и вывести в консоль.
+1. Первая - пристрелочная, написать класс `Circle`. У него должны быть координаты центра (x,y), и радиус. Конструктор должен принимать эти три параметра.
 */
 
-// const promise1 = new Promise(resolve => {
-//   setTimeout(() => {
-//     resolve(10);
-//   }, 1000);
-// });
-// const promise2 = new Promise(resolve => {
-//   setTimeout(() => {
-//     resolve(15);
-//   }, 2000);
-// });
-// Promise.all( [promise1, promise2] )
-//   .then( res => {
-//     const sum = res.reduce( (acc, val) => acc + val, 0 );
-//     console.log(sum);
-//   });
+class Circle {
 
-// async function makePromises() {
-//   const promise1 = new Promise(resolve => {
-//     setTimeout(() => {
-//       resolve(10);
-//     }, 1000);
-//   });
-//   const promise2 = new Promise(resolve => {
-//     setTimeout(() => {
-//       resolve(15);
-//     }, 2000);
-//   });
-//   const res = await Promise.all([promise1, promise2]);
-//   const sum = res.reduce( (acc, val) => acc + val, 0);
-//   console.log(sum);
-// }
+  constructor(centerX, centerY, radius) {
+    this.centerX = centerX;
+    this.centerY = centerY;
+    this.radius = radius;
+  }
 
-// makePromises();
+  getLength() {
+    return 2 * Math.PI * this.radius;
+  }
 
-/*
-2. Пишем функцию `makeRacer`. Она будет нам создавать объект-гонщика, который будет участвовать в заезде. Функция будет принимать объект с двумя свойствами: имя гонщика, и название машины. Задача - вернуть промис, который будет зарезолвлен спустя случайное количество секунд объектом с данными гонщика. Для вычисления времени, воспользуйтесь формулой `Math.random() * 2000`.
-*/
+  getSquare() {
+    return Math.PI * (this.radius ** 2);
+  }
 
-function makeRacer(racer) {
-  return new Promise (resolve =>{
-    const delay = Math.random() * 2000;
-    setTimeout(() => {
-      resolve( {...racer, delay} );
-    }, delay);
-  });
+  move(newX, newY) {
+    this.centerX = newX;
+    this.centerY = newY;
+  }
+
+  scale(coeff) {
+    this.radius *= coeff;
+  }
 }
 
+// const circle1 = new Circle(0,0, 10);
+// console.log(circle1.getLength(), circle1.getSquare())
+
+// circle1.move(10,10);
+// console.log(circle1)
+
+// circle1.scale(2);
+// console.log(circle1);
+
 /*
-3. Пишем асинхронную функцию `startTraining`. Она должна принять в аргументах массив гонщиков (`racers`), пройтись по массиву, и запустить заезд для каждого гонщика. Нужно дождаться, пока все доберутся до фииниша, и вывести гонщиков в порядке прихода к финишу (например, "1 - Daniel Morales, Peugeot 308").
+5.  Реализуем класс `VersionsControl`. Он должен реализовать логику работы системы контроля версий. Класс принимает в конструкторе строку с начальной версией программного продукта, и название программного продукта. Строка с начальной версией имеет вид "1.0.0". Первое число - это Major-версия, второе - Minor-версия, и третье - Patch. Нужно сохранить имя программного продукта в поле класса `productName`, а major, minor, patch - в соответствующие поля.
+
+Также реализуем метод `getCurrentVersion`, который должен возвращать строку вида "Software PRODUCT_NAME, release MAJOR.MINOR.PATCH. All rights reserved."
 */
 
-async function startTraining(racers) {
-  const racerPromises = racers.map( makeRacer );
-  const result = await Promise.all( racerPromises );
-  result.forEach( (elem, index) => {
-    console.log(`${index + 1} - ${elem.name}, ${elem.car}, ${elem.delay}`);
-  });
+class VersionsControl {
+
+  constructor(initialRevision, productName) {
+    this.productName = productName;
+    let [ major, minor, patch ] = initialRevision.split('.');
+    this.major = major;
+    this.minor = minor;
+    this.patch = patch;
+  }
+
+  getCurrentRevision() {
+    return `Software ${this.productName}, release ${this.major}.${this.minor}.${this.patch}. All right reserved.`;
+  }
 }
 
-startTraining(racers);
+
+const newProduct = new VersionsControl('1.5.10', 'Timon');
+
+console.log(newProduct.getCurrentRevision());

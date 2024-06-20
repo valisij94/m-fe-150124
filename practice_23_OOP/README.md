@@ -22,7 +22,6 @@ class First {
 
 let firstInstance = new First();
 firstInstance.method();
-
 ```
 
 2. Что выведет код:
@@ -42,7 +41,6 @@ class First {
 let firstInstance = new First();
 console.log('Call');
 firstInstance.method();
-
 ```
 
 1. Что выведет код:
@@ -60,11 +58,15 @@ class First {
 }
 
 let firstInstance = new First();
+
 console.log('Before');
 firstInstance.method()
   .finally( () => console.log('Finally') )
   .then( (res) => console.log(res) );
 console.log('After');
+
+// Before Async Promise After Finally Result
+
 
 ```
 ### Задачи занятия
