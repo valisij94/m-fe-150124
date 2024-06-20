@@ -9,6 +9,64 @@
 - разбор практических примеров;
 - практическое применение полученных знаний.
 
+### Разогрев
+1. Что выведет код:
+```
+class First {
+  constructor() {}
+
+  method() {
+    console.log('Hello from method!');
+  }
+}
+
+let firstInstance = new First();
+firstInstance.method();
+
+```
+
+2. Что выведет код:
+```
+console.log('Class def');
+
+class First {
+  constructor() {
+    console.log('Constructor');
+  }
+
+  method() {
+    console.log('Method');
+  }
+}
+
+let firstInstance = new First();
+console.log('Call');
+firstInstance.method();
+
+```
+
+1. Что выведет код:
+```
+class First {
+  constructor() {}
+
+  method() {
+    console.log('Async');
+    return new Promise( resolve => {
+      console.log('Promise');
+      resolve('Result');
+    });
+  }
+}
+
+let firstInstance = new First();
+console.log('Before');
+firstInstance.method()
+  .finally( () => console.log('Finally') )
+  .then( (res) => console.log(res) );
+console.log('After');
+
+```
 ### Задачи занятия
 1. Первая - пристрелочная, написать класс `Circle`. У него должны быть координаты центра (x,y), и радиус. Конструктор должен принимать эти три параметра.
 2. Добавить классу методы `getLength`, `getSquare`, которые будут определять длину окружности и площадь круга соответственно.
