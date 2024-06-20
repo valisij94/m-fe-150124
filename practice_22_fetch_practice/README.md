@@ -44,7 +44,8 @@ console.log('Finish');
 const promise1 = new Promise( resolve => resolve('Hello')  );
 const promise2 = new Promise( resolve => resolve('World') );
 console.log('First');
-let result = Promise.all([promise1, promise2]).then(res => console.log(res.join(' ' )));
+let result = Promise.all([promise1, promise2])
+  .then(res => console.log(res.join(' ')));
 console.log('Second');
 ```
 
