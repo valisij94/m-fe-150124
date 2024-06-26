@@ -61,11 +61,9 @@ class First {
   constructor() {
     console.log('First constructor');
   }
-
   simpleMethod() {
     console.log('First Method');
   }
-
   complexMethod() {
     console.log('Complex method');
   }
@@ -76,7 +74,6 @@ class Second extends First {
     super();
     console.log('Second constructor');
   }
-
   simpleMethod() {
     super.simpleMethod();
     console.log('Second Method');
@@ -103,6 +100,10 @@ class Clazz {
   static complexMethod() {
     Clazz.staticProp = 'ExtremelyStatic';
     this.nonStaticProp = 'Nothing';
+  }
+
+  myMethod() {
+    console.log(this.nonStaticProp);
   }
 }
 

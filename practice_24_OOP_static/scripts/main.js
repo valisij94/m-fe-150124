@@ -1,7 +1,9 @@
-class Point {
+class Product {
 
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
+  constructor(title, price, category, description) {
+    this.title = title;
+    this.price = price;
+    this.category = category;
+    this.description = description;
   }
 }
