@@ -1,74 +1,62 @@
-class Point {
+class Product {
 
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
+  static categories = ['tools', 'beauty'];
+
+  constructor(title, price, category, description) {
+    this.title = title;
+    this.price = price;
+    this.description = description;
+    this.smartCategory = category;
+  }
+
+  get textDescription() {
+    return `Product ${this.title}, price: ${this.price}`;
+  }
+
+  set smartPrice(newPrice) {
+    if (typeof newPrice === 'number' && newPrice >= 0) {
+      this.price = newPrice;
+    }
+    else {
+      throw new Error('Cannot set negative price!');
+    }
+  }
+
+  set smartCategory(newCategory) {
+    if (Product.categories.includes(newCategory)) {
+      this.category = newCategory;
+    }
+    else {
+      throw new Error(`${newCategory} does not exist!`);
+    }
+  }
+
+  static addCategory(newCategory) {
+    if (!Product.categories.includes(newCategory)) {
+      Product.categories.push(newCategory);
+    }
   }
 }
 
+// const newProduct = new Product('Saw', 100, 'unknown', 'Something');
+// console.log(newProduct);
+
+Product.addCategory('toys');
+const newProduct1 = new Product('Ball', 100, 'toys', 'Something');
+
+// newProduct.smartPrice = -100;
+// console.log(newProduct.price);
+// newProduct.smartPrice = '100';
+// console.log(newProduct.price);
 
 /*
-1. Пристрелочная. Создаем класс `Shape`. Он подразумевает геометрическую фигуру в двумерном пространстве. У него будут свойства `name`, `color`, которые зайдут в конструкторе. И также будет метод `describe`, который будет возвращать строку вида `Shape NAME, color COLOR`.
+5. Предположим, у нас есть список категорий, `tools`, `beauty`. Нужно добавить классу `Product` массив с этими категориями, и сделать так, чтобы этот список был общим для всех экземпляров класса (т.е. был бы на уровне класса, а не объектов).
 */
-
-class Shape {
-
-  static instancesCounter = 0; // Static prop
-
-  objProp = {}; // Defining non-static property
-  static objProp1 = {};
-
-  constructor(name, color) {
-    this.name = name;
-    this.color = color;
-    Shape.instancesCounter = Shape.instancesCounter + 1;
-  }
-
-  describe() {
-    return `Shape ${this.name}, color ${this.color}`;
-  }
-}
 
 /*
-2. Теперь нужно реализовать класс `Line` (то есть линия). Линия также является геометрической фигурой, но расширяет ее, т.к. имеет еще свойства `start`, `end`. Эти свойства - будут объектами класса `Point` (определен в скрипте `main.js`), и должны передаваться в конструкторе. Также, нужно реализовать метод `getLength`, который определит длину линии по координатам.
+6. Реализуем сеттер `smartCategory`, нужно чтобы при установке категории контролировалось бы наличие такой категории (что она существует в нашем массиве из п.5).
 */
-
-class Line extends Shape {
-
-  constructor(name, color, start, end) {
-    super(name, color);
-    this.start = start;
-    this.end = end;
-  }
-}
 
 /*
-3. Реализуем класс `Circle`, он также является геометрической фигурой, у него есть координаты центра, и радиус, которые зайдут в конструкторе. И должны быть методы `getLength`, `getSquare`, которые будут считать длину окружности и площадь круга.
+7. Добавляем возможность расширения списка категорий. Добавим метод `addCategory`, который будет принимать название новой категории, и если такого названия (без учета регистра) нет в массиве категорий - то добавлять его в массив.
 */
-
-class Circle extends Shape {
-
-  constructor(name, color, center, radius) {
-    super(name, color);
-    this.center = center;
-    this.radius = radius;
-  }
-
-  getLength() {
-    return 2 * Math.PI * this.radius;
-  }
-
-  getSquare() {
-    return Math.PI * this.radius ** 2;
-  }
-}
-
-/*
-4. Теперь предположим, что мы хотим сделать "счетчик" созданных геометрических фигур. Нам нужно сделать так, чтобы при каждом создании фигуры, у нас увеличивался бы счетчик. Этот счетчик нужно сделать на уровне класса, а не объектов.
-*/
-
-const circle = new Circle('Circle', 'Red', new Point(0,0), 5);
-const line = new Line('Line', 'Green', new Point(0,0), new Point(1,1));
-const shape = new Shape('Shape1', 'Blue');
-
-console.log(shape.objProp === circle.objProp);

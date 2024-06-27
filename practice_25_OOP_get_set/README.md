@@ -1,8 +1,8 @@
-## Практическое занятие №24
+## Практическое занятие №25
 
 ### Тема: Основы объектно-ориентированного программирования в JavaScript. Классы и объекты.
 
-Репозитарий содержит материалы по практическому занятию №24, посвященному основам ООП. Статические свойства и методы. Наследование.
+Репозитарий содержит материалы по практическому занятию №25, посвященному основам ООП. Статические свойства и методы. Наследование.
 
 ### Цели занятия
 - закрепление знаний, полученных на лекции;
@@ -45,7 +45,6 @@ class Second extends First {
 
 let instance = new Second();
 instance.simpleMethod();
-
 ```
 
 3. Что выведет код:
@@ -55,7 +54,6 @@ class First {
     console.log('First constructor');
   }
 }
-
 class Second extends First {
   get getterProp() {
     return this.prop;
@@ -63,21 +61,18 @@ class Second extends First {
   set setterProp(value) {
     this.prop = value;
   }
-
   constructor() {
     super();
     this.prop = 'Nothing';
     console.log('Second constructor');
   }
 }
-
 class Third extends Second {
   constructor() {
     super();
     console.log('Third constructor');
   }
 }
-
 let instance = new Third();
 console.log(instance.getterProp);
 instance.setterProp = 'Something';
