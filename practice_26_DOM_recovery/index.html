@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Practice_08</title>
+
+</head>
+<body>
+    <main class="mainContainer">
+        <h2 class="greeting">Welcome to async operations!</h2>
+        <button class="button" id="showCallbackFormBtn">Show Callback Form</button>
+    </main>
+
+    <div class="callbakcFormContainer">
+        <h1 class="callbackFormHeader">Форма обратной связи</h1>
+        <p class="callbackFormByline">Пожалуйста, опишите Ваш вопрос, и мы с Вами свяжемся!</p>
+        <input class="callbackFormInput" id="lastName" placeholder="Фамилия"/>
+        <input class="callbackFormInput" id="firstName" placeholder="Имя"/>
+
+        <label for="categorySelect">Категория вопроса</label>
+        <select class="callbackFormSelect" id="categorySelect"></select>
+
+        <textarea class="callbackFormInput" placeholder="Опишите Ваш вопрос здесь!"></textarea>
+        <input class="callbackFormInput" id="email" placeholder="Эл.почта"/>
+
+        <button class="callbackFormButton" id="submitCallbackFormBtn">Отправить!</button>
+    </div>
+
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
