@@ -31,6 +31,7 @@ btn.addEventListener('click', () => { console.log('Fourth'); });
 Что выведет код:
 ```
 const divEl = document.querySelector('#inner');
+const button = document.querySelector('#button');
 divEl.addEventListener('click', () => console.log('Hey there!') );
 button.onclick = () => console.log('Click on the button!');
 ```

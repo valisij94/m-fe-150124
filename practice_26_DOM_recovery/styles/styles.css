@@ -36,3 +36,11 @@ img {
 .removeFromCartBtn {
     background-color: rgb(169, 26, 10);
 }
+
+.hidden {
+    display: none;
+}
+
+.errorField {
+    border: 2px solid red;
+}
