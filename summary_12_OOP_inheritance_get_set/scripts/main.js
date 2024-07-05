@@ -122,8 +122,36 @@ class CofeeAutomat extends CoffeeMachine {
   constructor(model, waterLimit, beansLimit, milkLimit) {
     super(model, waterLimit, beansLimit, milkLimit);
     this.deposit = 0;
+    this.prices = {};
+  }
+
+  addCoin(coin) {
+    if (CoffeeMachine.coins.some( el => el === coin ) ) {
+      this.deposit += coin;
+    }
+  }
+
+  setCoffeePrice(name, price) {
+    const exists = CoffeeMachine.recipes.some( el => el.name === name );
+    if (exists) {
+      this.prices[name] = price;
+    }
+  }
+
+  buyCoffee(name) {
+    const coffeePrice = this.prices[name];
+    if (coffeePrice && this.deposit >= coffeePrice) {
+      return super.makeCofee(name);
+    }
   }
 }
+
+const automat = new CofeeAutomat('Model', 1, 1, 1);
+automat.setCoffeePrice('espresso', 50);
+
+console.log(automat)
+automat.setCoffeePrice('espresso', 50);
+console.log(automat)
 
 /*
 7. Теперь осталось реализовать приготовление кофе. Реализуем метод `makeCoffee`, который будет принимать в аргументе название кофе. Он будет возвращать объект, у которого будет свойство с названием напитка. Но при этом, нужно контролировать, что:
