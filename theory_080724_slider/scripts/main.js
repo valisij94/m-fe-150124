@@ -32,7 +32,7 @@ let currentIndex = 0;
 
 leftBtn.addEventListener('click', () => {
   // if (currentIndex > 0) {
-  //   currentIndex-+= 1;
+  //   currentIndex -= 1;
   // }
   // else {
   //   currentIndex = images.length - 1;
