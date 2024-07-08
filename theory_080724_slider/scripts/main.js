@@ -23,3 +23,37 @@ const [leftBtn, rightBtn] = document.querySelectorAll('.triggers > button');
 // Подсказка: реализуйте данный механизм создав переменные для:
 // 1) Порядкого индекса слайда
 // 2) Аккумулятор ширины (...0, ...400, ...800 и тд)
+
+/*
+1. С предыдущего занятия, есть разметка и стили для слайдера. Нам осталось только реализовать управление текущим слайдом, т.е. смену картинки. Для этого, нам понадобится управлять смещением контейнера `.cards_container` относительно "рамки" слайдера (`frame`). Задача к обсуждению.
+*/
+
+let currentIndex = 0;
+
+leftBtn.addEventListener('click', () => {
+  // if (currentIndex > 0) {
+  //   currentIndex-+= 1;
+  // }
+  // else {
+  //   currentIndex = images.length - 1;
+  // }
+  currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1
+  cardsContainer.style.left = `-${currentIndex * 400}px`;
+});
+
+rightBtn.addEventListener('click', () => {
+  // if (currentIndex < images.length - 1)  {
+  //   currentIndex += 1;
+  // }
+  // else {
+  //   currentIndex = 0;
+  // }
+  currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0
+  cardsContainer.style.left = `-${currentIndex * 400}px`;
+});
+
+/*
+2. Реализуем то, что обсудили в первой задаче, добавляем обработчики на кнопки `.triggers > button`. Делаем плавный переход между слайдами.
+3. Реализуем внизу иконки, отображающие текущий слайд. Нужно, чтобы внизу (под слайдером), отображалась бы панель с точками, которые показывали бы количество слайдов. Активный слайд нужно подсветить. Для этого, воспользуемся классами `slider_dot`, `active`, которые уже определены в стилях.
+4. Задача к обсуждению. Сделать так, чтобы при клике на точку, слайдер переходил бы на соответствующий слайд.
+*/
