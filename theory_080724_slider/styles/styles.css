@@ -68,6 +68,13 @@ img {
     opacity: 0.5;
 }
 
+.dots_container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 10px;
+}
+
 .slider_dot {
     width: 10px;
     height: 10px;

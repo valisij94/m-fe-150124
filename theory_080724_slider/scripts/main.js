@@ -37,8 +37,10 @@ leftBtn.addEventListener('click', () => {
   // else {
   //   currentIndex = images.length - 1;
   // }
+  dotsContainer.querySelector('.slider_dot.active').classList.remove('active');
   currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1
   cardsContainer.style.left = `-${currentIndex * 400}px`;
+  dotsContainer.querySelector(`.slider_dot:nth-child(${currentIndex + 1})`).classList.add('active');
 });
 
 rightBtn.addEventListener('click', () => {
@@ -48,12 +50,25 @@ rightBtn.addEventListener('click', () => {
   // else {
   //   currentIndex = 0;
   // }
+  dotsContainer.querySelector('.slider_dot.active').classList.remove('active');
   currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0
   cardsContainer.style.left = `-${currentIndex * 400}px`;
+  dotsContainer.querySelector(`.slider_dot:nth-child(${currentIndex + 1})`).classList.add('active');
 });
 
 /*
 2. Реализуем то, что обсудили в первой задаче, добавляем обработчики на кнопки `.triggers > button`. Делаем плавный переход между слайдами.
 3. Реализуем внизу иконки, отображающие текущий слайд. Нужно, чтобы внизу (под слайдером), отображалась бы панель с точками, которые показывали бы количество слайдов. Активный слайд нужно подсветить. Для этого, воспользуемся классами `slider_dot`, `active`, которые уже определены в стилях.
+*/
+
+const dotsContainer = document.querySelector('.dots_container');
+images.forEach( el => {
+  const btnEl = document.createElement('div');
+  btnEl.classList.add('slider_dot');
+  dotsContainer.append(btnEl);
+});
+dotsContainer.querySelector('.slider_dot:nth-child(1)').classList.add('active');
+
+/*
 4. Задача к обсуждению. Сделать так, чтобы при клике на точку, слайдер переходил бы на соответствующий слайд.
 */
