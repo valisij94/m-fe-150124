@@ -72,3 +72,48 @@ dotsContainer.querySelector('.slider_dot:nth-child(1)').classList.add('active');
 /*
 4. Задача к обсуждению. Сделать так, чтобы при клике на точку, слайдер переходил бы на соответствующий слайд.
 */
+
+
+
+//////////////////////// Всплытие и погружение ///////////////////////////
+
+// function trackClick(event) {
+//   //if (event.target.tagName === 'BUTTON') {
+//     console.log('Clicked on');
+//     console.log(event.target)
+//   //}
+// }
+
+// document.addEventListener('click', trackClick);
+
+// const div = document.querySelector('#bubblingDiv');
+// const btn = document.querySelector('#testButton');
+
+// div.addEventListener('click', (e) => {
+//   console.log('Custom handler on DIV');
+//   // Предотвратить распространение события (т.е. И погружение, И всплытие)
+//   e.stopPropagation();
+// }, true)
+
+// btn.addEventListener('click', (e) => {
+//   console.log('Custom handler on BUTTON');
+// })
+
+/* Нужно сделать так, чтобы эта функция вызывалась при клике на любую кнопку, в любом месте нашего div#buttonsBlock */
+const btnClickHandler = (e) => {
+  if (e.target.tagName === 'BUTTON') {
+    console.log('Clicked on Button!');
+  }
+};
+
+const divEl = document.querySelector('#buttonsBlock');
+divEl.addEventListener('click', btnClickHandler);
+
+/*
+3. Давайте представим что мы злобные хакеры, и пишем кейлоггер, то есть хотим отслеживать события клавиатуры на сайте. Нам нужно написать функцию `trackKeyboard`, которая будет отслеживать нажатия клавиш (причем неважно, где фокус), и выводит в консоль, что же конкретно нажато. Нас будет интересовать свойство `key` объекта события. И нужно разместить обработчик в правильном месте.
+*/
+function trackKeyboard(event) {
+  console.log('Pressed ' + event.key);
+}
+
+document.addEventListener('keydown', trackKeyboard);
