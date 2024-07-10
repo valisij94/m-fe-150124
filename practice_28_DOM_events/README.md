@@ -49,12 +49,11 @@ firstButton.addEventListener('click', (e) => console.log('Click on First Button'
 И скрипт:
 ```
 firstDiv.addEventListener('click', (e) => console.log('Click on First Div') );
-secondDiv.addEventListener('click', (e) => e.stopPropagation() );
+secondDiv.addEventListener('click', (e) => e.stopPropagation(), true );
 firstButton.addEventListener('click', (e) => console.log('Click on First Button') );
 ```
 
 Что будет выведено в консоли, если мы кликнем на First Button?
-
 
 ### Задачи занятия
 
