@@ -8,3 +8,28 @@ img {
     max-width: 100%;
     max-height: 100%;
 }
+
+.dropdownContainer {
+    position: relative;
+    width: fit-content;
+}
+
+.dropdownInput {
+    padding: 5px 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.dropdownOptionsContainer {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    display: none;
+    width: 100%;
+}
+
+.dropdownOption {
+    padding: 5px 10px;
+    border-bottom: 1px solid gray;
+}
