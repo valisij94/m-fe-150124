@@ -7,51 +7,45 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div className="App">
     <h1>Hello React! Something!</h1>
-    <SimpleParagraph/>
-    <LoginForm/>
+    <PersonalCard/>
+    <Copyright />
   </div>
 );
 
-function SimpleParagraph() {
+/*
+1. Пристрелочная задача. Делаем компонент, который будет отображать "копирайт" нашего проекта (Copyright). Это должен быть параграф, с текстом "Учебный проект. Все права защищены. 2024". Для символа копирайта используем `&#169;`.
+*/
+/*
+2. Добавляем стили. В файле `App.css` создадим класс `copyright` для нашего копирайта. Он должен занимать всю ширину, цвет текста - серый, выравнивание текста по центру, размер шрифта 14.
+*/
+
+function Copyright() {
   return (
-    <p>Hello World from React!</p>
+    <p className='copyright'>&#169; Учебный проект. Все права защищены. 2024</p>
   );
 }
 
 /*
-6. Реализуем еще один компонент, `LoginForm`. Он должен рендерить нам несложную форму входа. Она содержит логин, пароль, и кнопку "Вход".
-*/
-
-function LoginForm() {
-
-  return (
-    <div>
-      <input placeholder="Login" type="text"/>
-      <input placeholder="Password" type="password"/>
-      <button>Enter</button>
-      <SimpleParagraph/>
-      <SimpleRadio />
-    </div>
-  );
-}
-
-/**
- * создать компонент SimpleRadio, который будет отвечать за рендеринг Radio
- * опции: text - Basic, value - basic
- *        text - Premium, value - premium
- *        text - Luxury, value - luxury
+3. Теперь попробуем создать компонент `PersonalCard`, который будет отвечать за отрисовку карточки с вашими данными. Карточка содержит:
+ - заголовок h3 с ФИО
+ - параграф с названием вашей квалификации (не скромничаем, но и не теряем связь с реальностью)
+ - параграф "О себе" - здесь напишем пару слов о том, какие мы классные.
+ - аватар (картинка - в идеале, с фото). Хорошо будет, чтобы картинка была круглая
  */
 
-function SimpleRadio() {
+ /*
+ 4. Стилизуем компонент. Нужно создать класс `personalInfoContainer`. Нужно сделать так, чтобы ФИО, квалификация и описание занимали бы половину ширины, а остальное занимала бы картинка. Также, нужно будет стилизовать и изображение - задать ему ширину 100% контейнера, и соотношение сторон 1:1 (aspect-ratio).
+ */
 
-  return (
-    <div>
-      <input type="radio" name="radio" value="basic" id="basicRadio"/>
-      <label for="basicRadio">Basic</label>
-      <input type="radio" name="radio" value="premium" id="premiumRadio"/>
-      <label for="premiumRadio">Premium</label>
-      <input type="radio" name="radio" value="luxury" id="luxuryRadio"/>
-      <label for="luxuryRadio">Luxury</label>
+ function PersonalCard() {
+  return(
+    <div className='personalCard'>
+      <div className='personalInfo'>
+        <h3>Жорж Милославский</h3>
+        <p>Специалист широкого профиля</p>
+        <p>Артист больших и малых академических театров</p>
+      </div>
+      <img src='https://upload.wikimedia.org/wikipedia/ru/thumb/9/91/Zhorzh_miloslavski.jpg/274px-Zhorzh_miloslavski.jpg' className='personalPhoto'></img>
     </div>
-  );
+  )
 }
