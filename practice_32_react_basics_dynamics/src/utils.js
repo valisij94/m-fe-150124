@@ -5,5 +5,7 @@ function upperCaseFirst(str) {
 }
 
 function upperCaseWords(str) {
-  return str.split(' ').map( el => upperCaseFirst(el) ).join('');
+  return str.split(' ').map( el => upperCaseFirst(el) ).join(' ');
 }
+
+export { GREETING, upperCaseWords };

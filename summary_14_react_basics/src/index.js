@@ -6,7 +6,6 @@ import App from './App.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div className="App">
-    <h1>Hello React! Something!</h1>
     <App />
   </div>
 );

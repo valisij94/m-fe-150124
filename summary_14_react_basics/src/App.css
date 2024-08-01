@@ -29,39 +29,34 @@
   color: #61dafb;
 }
 
-.copyright {
-  color: gray;
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
-}
-
-.personalCard {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.personalInfo {
+.productCard {
+  max-width: 400px;
+  border-radius: 15px;
+  border: 1px solid lightgray;
+  box-shadow: 5px 5px 15px lightgray;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: start;
 }
 
-.personalPhoto {
-  border-radius: 50%;
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  justify-self: center;
+.productPrice {
+  font-size: 16px;
+  color: darkblue;
+  font-weight: 700;
 }
 
-.simpleHeader {
-  font-size: 20px;
-  color: red;
-  border: 1px solid red ;
-  border-radius: 10%;
-  font-weight: bold;
+.productBrands {
+  font-size: 12px;
+  color: gray;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+}
+
+.productList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 @keyframes App-logo-spin {
