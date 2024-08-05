@@ -1,3 +1,7 @@
+/*
+2. Теперь импортируем в наш компонент данные о товаре (пиле), из файла `data.js`. Это объект `sawData`. Воспользуемся им, чтобы заполнить данные о товаре.
+*/
+
 import { sawData, hasDiscount } from "../data/data.js";
 
 import { calculateDiscount } from "../utils.js";

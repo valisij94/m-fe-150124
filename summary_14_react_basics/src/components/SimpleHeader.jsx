@@ -1,6 +1,9 @@
-function SimpleHeader() {
+function SimpleHeader( arg ) {
+
+  console.log("Component props", arg);
+
   return (
-    <h1 className="simpleHeader">Hello World from React!</h1>
+    <h1 className="simpleHeader">{arg.text}</h1>
   );
 }
 
