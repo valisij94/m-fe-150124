@@ -1,15 +1,18 @@
 import ProductCard from "./ProductCard";
 
-function ProductList() {
+function ProductList( { products, emptyProductList } ) {
 
   return (
     <div>
       <h2>Tools</h2>
       <div className="productList">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {
+          products && products.length > 0 ? (
+            products.map(prod => {
+              return <ProductCard product={prod} key={prod.id}/>
+            })
+          ) : <p>{emptyProductList}</p>
+        }
       </div>
       <p>Time to buy!</p>
     </div>
