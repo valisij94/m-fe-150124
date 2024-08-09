@@ -29,20 +29,8 @@
   color: #61dafb;
 }
 
-.copyright {
-  color: gray;
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
-}
-
-.simpleListContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
 .productCard {
+  max-width: 400px;
   border-radius: 15px;
   border: 1px solid lightgray;
   box-shadow: 5px 5px 15px lightgray;
@@ -71,22 +59,24 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
-.simpleHeader {
-  font-size: 20px;
-  font-weight: bold;
+.infoBlock {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.info {
+  border: 2px dashed green;
 }
 
 .warning {
-  border: 1px dashed blue;
-  color: blue;
-  border-radius: 10px;
-  font-size: 20px;
+  border: 2px dashed blue;
 }
 
 .error {
-  border: 1px solid red;
-  border-radius: 10px;
-  font-size: 18px;
+  border: 1px dotted red;
 }
 
 @keyframes App-logo-spin {
