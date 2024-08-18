@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function SimpleCounter() {
 
-  let [count, setCount] = useState(0);
+  let [count, setCount] = useState( );
 
   const handleAddClick = () => {
     setCount(count + 1);

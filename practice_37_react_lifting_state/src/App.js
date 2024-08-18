@@ -2,18 +2,16 @@ import React, { useState } from 'react';
 import './App.css';
 
 import Copyright from './components/Copyright.jsx';
-import SimpleCounter from './components/SimpleCounter.jsx';
-import SimpleButton from './components/SimpleButton.jsx';
-import SimpleInput from './components/SimpleInput.jsx';
 import SimpleList from './components/SimpleList.jsx';
+import SimpleHeader from './components/SimpleHeader.jsx';
 
 function App() {
 
-  const greetUser = () => {
-    console.log('Greeting!');
-  }
-
-  const [todos, setTodos] = useState( ['Learn HTML', 'Learn CSS', 'Learn JS'] );
+  const [todos, setTodos] = useState( [
+    {id: 1, text: 'Learn HTML'},
+    {id: 2, text: 'Learn CSS'},
+    {id: 3, text: 'Learn JS'}
+  ]);
 
   const [todoName, setTodoName] = useState('');
 
@@ -22,9 +20,7 @@ function App() {
   }
 
   const handleAddTodoClick = () => {
-    const newTodos = [...todos, todoName];
-    setTodos(newTodos);
-    setTodoName('');
+    // Update! Use Date.now() as todo id.
   }
 
   return (
@@ -37,11 +33,8 @@ function App() {
         placeholder="Todo"
       />
       <button onClick={handleAddTodoClick}>Add Todo</button>
-
+      <SimpleHeader textContent="Hello stranger!" />
       <SimpleList headerText="Simple list" items={todos} />
-      <SimpleCounter />
-      <SimpleInput placeholder="Something" />
-      <SimpleButton btnText={"Greet"} clickHandler={greetUser}/>
       <Copyright />
     </div>
   );

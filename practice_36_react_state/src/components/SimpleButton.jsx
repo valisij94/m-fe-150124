@@ -1,8 +1,17 @@
-function SimpleButton( {btnText, btnClasses = '' } ) {
+import { useState } from "react";
+
+function SimpleButton( {btnText, btnClasses = '', clickHandler } ) {
+
+  const [clickCount, setClickCount] = useState(0);
+
+  const handleClick = (event) => {
+    setClickCount(clickCount + 1);
+    clickHandler(event);
+  }
 
   return (
-    <button className={`simpleButton ${btnClasses}`}>
-      {btnText}
+    <button onClick={handleClick} className={`simpleButton ${btnClasses}`}>
+      {`${btnText} ${clickCount}`}
     </button>
   );
 }
