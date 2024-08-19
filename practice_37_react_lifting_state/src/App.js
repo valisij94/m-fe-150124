@@ -4,6 +4,7 @@ import './App.css';
 import Copyright from './components/Copyright.jsx';
 import SimpleList from './components/SimpleList.jsx';
 import SimpleHeader from './components/SimpleHeader.jsx';
+import LoginForm from './components/LoginForm.jsx';
 
 function App() {
 
@@ -23,6 +24,13 @@ function App() {
     // Update! Use Date.now() as todo id.
   }
 
+  const [userLogin, setUserLogin] = useState('');
+
+  const handleLoginChange = (newLogin) => {
+    // ...
+    setUserLogin(newLogin);
+  }
+
   return (
     <div className="App">
       <h1>Hello React!</h1>
@@ -33,8 +41,10 @@ function App() {
         placeholder="Todo"
       />
       <button onClick={handleAddTodoClick}>Add Todo</button>
-      <SimpleHeader textContent="Hello stranger!" />
+      <SimpleHeader textContent={`Hello, ${userLogin || 'stranger'}`} />
       <SimpleList headerText="Simple list" items={todos} />
+
+      <LoginForm setUserLogin={handleLoginChange}/>
       <Copyright />
     </div>
   );
