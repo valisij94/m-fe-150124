@@ -4,6 +4,7 @@ import './App.css';
 import Copyright from './components/Copyright.jsx';
 import SimpleHeader from './components/SimpleHeader.jsx';
 import LoginForm from './components/LoginForm.jsx';
+import ProductList from './components/products/ProductList.jsx';
 
 function App() {
 
@@ -25,8 +26,9 @@ function App() {
     <div className="App">
       <h1>Hello React!</h1>
       <SimpleHeader textContent={`Hello, ${userLogin || 'stranger'}`} />
-      <button onClick={toggleFormVisibility}>Toggle LoginForm visibility</button>
-      { formVisible && <LoginForm setUserLogin={handleLoginChange}/> }
+      {/* <button onClick={toggleFormVisibility}>Toggle LoginForm visibility</button>
+      { formVisible && <LoginForm setUserLogin={handleLoginChange}/> } */}
+      <ProductList />
       <Copyright />
     </div>
   );
