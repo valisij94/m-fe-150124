@@ -1,57 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import SimpleHeader from "../inputViews/SimpleHeader";
 
-function LoginForm( {setUserLogin} ) {
+function LoginForm( {handleLogin} ) {
 
   const [login, setLogin] = useState('');
   const [passwd, setPasswd] = useState('');
-  const [error, setError] = useState(false);
-
-  const [time, setTime] = useState(new Date().toISOString());
-
-  useEffect( () => {
-    console.log('Login form had been rendered!');
-
-    setInterval( () => {
-      setTime(new Date().toISOString());
-    }, 1000 );
-
-  }, []);
-
-  useEffect( () => {
-    if (login) {
-      console.log('login exists!')
-    }
-    else {
-      console.log('empty login!')
-    }
-  }, [login] );
-
-  const handleLoginChange = (event) => {
-    setLogin(event.target.value);
-  }
-
-  const handlePasswdChange = (event) => {
-    setPasswd(event.target.value);
-  }
-
-  const handleLoginClick = () => {
-    if (!!login && !!passwd) {
-      console.log(login, passwd);
-      setError(false);
-      setUserLogin(login);
-    }
-    else {
-      setError(true);
-    }
-  }
 
   return (
     <div>
-      <input value={login} onChange={handleLoginChange} type="text" placeholder="Login"/>
-      <input value={passwd} onChange={handlePasswdChange} type="password" placeholder="Password"/>
-      { error && <p>Fill all fields!</p> }
-      <p>{time}</p>
-      <button onClick={handleLoginClick}>Login</button>
+      <SimpleHeader textContent="Login Form"/>
+      <input value={login} onChange={ (e) => setLogin(e.target.value) } type="text" placeholder="Login"/>
+      <input value={passwd} onChange={ (e) => setPasswd(e.target.value) } type="password" placeholder="Password"/>
+      <button onClick={ () => handleLogin(login, passwd) }>Login</button>
     </div>
   )
 }

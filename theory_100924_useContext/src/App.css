@@ -104,6 +104,30 @@
   font-size: 18px;
 }
 
+/* стили для разных тем */
+.simpleHeader, .simpleInput {
+  border-radius: 10px;
+}
+
+.simpleHeader.light {
+  color: #0096CD;
+  background-color: lightblue;
+}
+
+.simpleHeader.dark {
+  color: lightblue;
+  background-color: darkblue;
+}
+
+.simpleInput.light {
+  border: 1px solid #0096CD;
+}
+
+.simpleInput.dark {
+  border: 1px solid darkblue;
+  background-color: lightgray;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
