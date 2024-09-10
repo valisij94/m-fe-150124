@@ -3,4 +3,4 @@ import { createContext } from 'react';
 
 // Создаем контекст. Аргумент - это начальное значение, "последний шанс" - то есть то значение, которое будет использовано
 // если не найдено никаких других вариантов - о них далее.
-export const ThemeContext = createContext('light');
+export const ThemeContext = createContext( { value: 'light' } );

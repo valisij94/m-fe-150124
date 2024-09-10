@@ -12,7 +12,7 @@ function SimpleInput( {placeholder, value, onChange} ) {
   return (
     <input
       value={value}
-      className={`simpleInput ${themeContext}`}
+      className={`simpleInput ${themeContext.value}`}
       onChange={handleChange}
       placeholder={placeholder}
     />
