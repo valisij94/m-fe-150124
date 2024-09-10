@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+
 function SimpleInput( {placeholder, value, onChange} ) {
+
+  const themeContext = useContext(ThemeContext);
 
   const handleChange = (event) => {
     onChange(event.target.value);
@@ -7,7 +12,7 @@ function SimpleInput( {placeholder, value, onChange} ) {
   return (
     <input
       value={value}
-      className={`simpleInput`}
+      className={`simpleInput ${themeContext}`}
       onChange={handleChange}
       placeholder={placeholder}
     />

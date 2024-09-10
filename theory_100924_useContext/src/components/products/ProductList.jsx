@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import SimpleHeader from "../../inputViews/SimpleHeader";
 
 function ProductList() {
 
@@ -26,7 +27,9 @@ function ProductList() {
 
   return (
     <div>
-      <h2>Tools</h2>
+      <SimpleHeader
+        textContent="Tools"
+      />
       { load ? <p>Please, wait...</p> :
       <div className="productList">
         { products.map( prod => <ProductCard key={prod.id} product={prod} />)}
