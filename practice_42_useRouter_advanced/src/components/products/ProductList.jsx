@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
 
 function ProductList() {
 
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(false);
-
-  const {login} = useContext(UserContext);
 
   useEffect(()=> {
     const fetchProducts = async() => {
@@ -28,10 +24,9 @@ function ProductList() {
 
   },[])
 
-  const headerText = login ? 'Tools for you, ' + login : 'Tools';
   return (
     <div>
-      <h1>{headerText}</h1>
+      <h2>Tools</h2>
       { load ? <p>Please, wait...</p> :
       <div className="productList">
         { products.map( prod => <ProductCard key={prod.id} product={prod} />)}

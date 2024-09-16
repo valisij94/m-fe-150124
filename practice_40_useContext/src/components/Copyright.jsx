@@ -1,9 +1,15 @@
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 function Copyright() {
 
-  console.log('Render copyright component')
+  const {login} = useContext(UserContext);
+
   return (
-    <p>&#169; My project. All rights reserved. {new Date().getFullYear()}</p>
+    <div>
+      {login && <p>Thank you for visiting, {login}!</p>}
+      <p>&#169; My project. All rights reserved. {new Date().getFullYear()}</p>
+    </div>
   );
 }
 

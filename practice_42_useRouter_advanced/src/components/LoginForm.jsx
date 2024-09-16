@@ -1,14 +1,11 @@
-import { useContext } from "react";
 import { useState } from "react";
-import { UserContext } from "../context/UserContext";
 
-function LoginForm() {
+function LoginForm( {setUserLogin} ) {
 
   const [login, setLogin] = useState('');
   const [passwd, setPasswd] = useState('');
   const [error, setError] = useState(false);
 
-  const ctx = useContext(UserContext);
 
   const handleLoginChange = (event) => {
     setLogin(event.target.value);
@@ -20,8 +17,9 @@ function LoginForm() {
 
   const handleLoginClick = () => {
     if (!!login && !!passwd) {
+      console.log(login, passwd);
       setError(false);
-      ctx.setUserLogin(login);
+      setUserLogin(login);
     }
     else {
       setError(true);

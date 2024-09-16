@@ -5,32 +5,29 @@ import Copyright from './components/Copyright.jsx';
 import SimpleHeader from './components/SimpleHeader.jsx';
 import LoginForm from './components/LoginForm.jsx';
 import ProductList from './components/products/ProductList.jsx';
+import { UserContext } from './context/UserContext.jsx';
 
 function App() {
 
   const [userLogin, setUserLogin] = useState('');
 
-  const [formVisible, setFormVisible] = useState(true);
-
   const handleLoginChange = (newLogin) => {
-    // ...
     setUserLogin(newLogin);
   }
 
-
-  const toggleFormVisibility = () => {
-    setFormVisible(!formVisible);
-  }
-
   return (
-    <div className="App">
-      <h1>Hello React!</h1>
-      <SimpleHeader textContent={`Hello, ${userLogin || 'stranger'}`} />
-      {/* <button onClick={toggleFormVisibility}>Toggle LoginForm visibility</button>
-      { formVisible && <LoginForm setUserLogin={handleLoginChange}/> } */}
-      <ProductList />
-      <Copyright />
-    </div>
+    <UserContext.Provider value={{
+      login: userLogin,
+      pwd: '',
+      setUserLogin: handleLoginChange
+    }}>
+      <div className="App">
+        <h1>Hello React!</h1>
+        <SimpleHeader textContent={`Hello, ${userLogin || 'stranger'}`} />
+        <LoginForm/>
+        <Copyright />
+      </div>
+    </UserContext.Provider>
   );
 }
 
