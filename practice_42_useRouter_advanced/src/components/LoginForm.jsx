@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
-function LoginForm( {setUserLogin} ) {
+function LoginForm() {
+
+  const navigate = useNavigate();
 
   const [login, setLogin] = useState('');
   const [passwd, setPasswd] = useState('');
@@ -19,7 +22,7 @@ function LoginForm( {setUserLogin} ) {
     if (!!login && !!passwd) {
       console.log(login, passwd);
       setError(false);
-      setUserLogin(login);
+      navigate('/products');
     }
     else {
       setError(true);
